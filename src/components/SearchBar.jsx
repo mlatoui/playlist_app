@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import SongCard from "./SongCard";
 
-const DataFetching = () => {
-  const [search, setSearch] = useState('');
+const SearchBar = () => {
+  const [search, setSearch] = useState("");
   const [Results, setResults] = useState([]);
 
   const handleSearch = async () => {
@@ -14,7 +15,7 @@ const DataFetching = () => {
       setResults(data.data);
       console.log(data.data);
     } catch (error) {
-      console.error('Error fetching data from Deezer:', error);
+      console.error("Error fetching data from Deezer:", error);
     }
   };
 
@@ -28,11 +29,11 @@ const DataFetching = () => {
       <button onClick={handleSearch}>Search</button>
       <ul>
         {Results.map((result) => (
-          <li key={result.id}>{result.title}</li>
+          <SongCard key={result.id} result={result} id={result.id} />
         ))}
       </ul>
     </div>
   );
 };
 
-export default DataFetching;
+export default SearchBar;
