@@ -3,7 +3,8 @@ import SongCard from "./SongCard";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
-  const [Results, setResults] = useState([]);
+  const [resultsVisible, setResultsVisible] = useState(false);
+  const [results, setResults] = useState([]);
 
   const handleSearch = async () => {
     if (!search) return;
@@ -13,26 +14,39 @@ const SearchBar = () => {
       );
       const data = await response.json();
       setResults(data.data);
-      console.log(data.data);
+      setResultsVisible(true);
     } catch (error) {
       console.error("Error fetching data from Deezer:", error);
     }
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-      <ul>
-        {Results.map((result) => (
+    <>
+      <div className="music-logo">
+        <i className="fa-solid fa-music"></i>
+      </div>
+      <div className="app-info">
+        Search for your favorite tracks and create custom Deezer playlists, all
+        saved to your personal profile.
+      </div>
+      <div id="input-container">
+        <input
+          id="input-field"
+          placeholder="Search song"
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button onClick={handleSearch} id="input-button">
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <ul id="results-container" className={resultsVisible ? "visible" : ""}>
+        {results.map((result) => (
           <SongCard key={result.id} result={result} id={result.id} />
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 
