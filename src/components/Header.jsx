@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const Header = () => {
   return (
     <header className="header">
-      PlaylistLab &nbsp; <i class="fa-solid fa-sliders"></i>
+      PlaylistLab &nbsp; <i className="fa-solid fa-sliders"></i>
     </header>
   );
 };

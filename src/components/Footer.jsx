@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      PlaylistLab &nbsp;<i class="fa-regular fa-copyright"></i>
+      PlaylistLab &nbsp;<i className="fa-regular fa-copyright"></i>
     </footer>
   );
 };

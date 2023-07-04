@@ -1,12 +1,11 @@
 import './App.css';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
-import Main from './components/Main';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { About } from './pages/about';
 import { Home } from './pages/home';
-import PlayList from './components/PlayList';
+import { Playlists } from './pages/playlists';
 
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/about" element={<PlayList />} />
+            <Route path="/playlist" element={<Playlists />} />
           </Routes>
         </div>{' '}
         <Footer />
