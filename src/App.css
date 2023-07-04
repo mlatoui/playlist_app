@@ -4,6 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
 }
 
 html,
@@ -14,6 +15,9 @@ body {
   /* Remove margin to avoid extra space */
   padding: 0;
   /* Remove padding to avoid extra space */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 13s ease infinite;
 }
 
 @keyframes gradient {
@@ -34,9 +38,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
+
 }
 
 #header-container {
@@ -80,6 +82,7 @@ body {
 
 .nav a:hover {
   color: #bbd1e8;
+
 }
 
 .music-logo {
@@ -141,7 +144,7 @@ body {
 }
 
 #input-button:hover {
-  background-color: #1c31479d;
+  background-color: #7f9fc2af;
 }
 
 .add-button {
@@ -151,10 +154,11 @@ body {
   font-size: 22px;
   border: none;
   color: rgb(98, 97, 97);
+
 }
 
 .add-button:hover {
-  background-color: #bbd1e8;
+  background-color: #7f9fc2af;
 }
 
 #results-container {
@@ -225,7 +229,9 @@ body {
   align-items: center;
   gap: 10px;
   justify-content: flex-start;
-  background-color: #afc2d4c3;
+  background: rgb(42, 62, 85);
+  background: linear-gradient(180deg, rgba(42, 62, 85, 0.4) 0%, rgba(217, 227, 240, 0.5) 100%);
+  background-size: 400% 400%;
   padding: 0 10px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -278,7 +284,7 @@ body {
   z-index: 9999;
   height: 60px;
   width: 60px;
-  background-color: #e0e0e048;
+  background-color: #5d7b9caf;
   border: none;
   color: whitesmoke;
   font-size: 24px;
@@ -290,7 +296,7 @@ body {
 }
 
 .toggle-button:hover {
-  background-color: rgba(176, 192, 210, 0.616);
+  background-color: #7f9fc2af;
 }
 
 .toggle-button:active {
@@ -356,6 +362,6 @@ body {
 }
 
 .playlist-button:hover {
-  background-color: #1c31479d;
+  background-color: #7f9fc2af;
 
 }
