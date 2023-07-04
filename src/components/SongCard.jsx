@@ -16,10 +16,10 @@ const SongCard = ({ result, id }) => {
         <img src={album.cover} alt="cover" />
       </div>
       <div className="info-container">
-        <h2>{title}</h2>
-        <h3>{artist.name}</h3>
-        <button onClick={handleSelect} id={id}>
-          Select
+        <h3 className="artist-name">{artist.name}</h3>
+        <h2 className="song-title">{title}</h2>
+        <button onClick={handleSelect} id={id} className="add-button">
+          <i class="fa-solid fa-plus"></i>
         </button>
       </div>
     </div>

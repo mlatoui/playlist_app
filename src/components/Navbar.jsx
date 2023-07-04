@@ -2,8 +2,8 @@ import React from "react";
 
 const menuItems = [
   { id: 1, title: "Home", url: "/" },
-  { id: 2, title: "About", url: "/about" },
-  { id: 3, title: "Play List", url: "/playlist" },
+  { id: 2, title: "Playlists", url: "/playlist" },
+  { id: 3, title: "About", url: "/about" },
 ];
 
 const Navbar = () => {
