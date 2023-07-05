@@ -20,12 +20,16 @@ const PlayList = () => {
           Playlist &nbsp;<i className="fa-solid fa-sliders"></i>
         </h2>
         {selectedSongs.map((song) => (
-          <SongCard key={song.id} result={song} id={song.id} />
+          <SongCard
+            key={song.id}
+            result={song}
+            id={song.id}
+            showDeleteButton={true}
+          />
         ))}
         <div className="playlist-buttons">
           <div></div>
           <button className="playlist-button">Save</button>
-          <button className="playlist-button">Delete</button>
         </div>
       </div>
     </div>

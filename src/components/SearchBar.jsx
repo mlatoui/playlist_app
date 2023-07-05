@@ -15,6 +15,7 @@ const SearchBar = () => {
       const data = await response.json();
       setResults(data.data);
       setResultsVisible(true);
+      console.log(data.data);
     } catch (error) {
       console.error("Error fetching data from Deezer:", error);
     }
@@ -43,7 +44,12 @@ const SearchBar = () => {
       </div>
       <ul id="results-container" className={resultsVisible ? "visible" : ""}>
         {results.map((result) => (
-          <SongCard key={result.id} result={result} id={result.id} />
+          <SongCard
+            key={result.id}
+            result={result}
+            id={result.id}
+            showDeleteButton={false}
+          />
         ))}
       </ul>
     </>
