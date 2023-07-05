@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { SelectedContext } from '../App';
 
-const SongCard = ({ result, id, showDeleteButton }) => {
+const SongCard = ({ result, id, showDeleteButton, onDetails }) => {
   const { title, artist, album } = result;
   const { selectedSongs, setSelectedSongs } = useContext(SelectedContext);
 
@@ -17,8 +17,12 @@ const SongCard = ({ result, id, showDeleteButton }) => {
     setSelectedSongs(newSelectedSongs);
   };
 
+  const handleDetails = () => {
+    onDetails(result);
+  };
+
   return (
-    <div className="business-card">
+    <div className="song-card">
       <div className="image-container">
         <img src={album.cover} alt="cover" />
       </div>
@@ -34,6 +38,7 @@ const SongCard = ({ result, id, showDeleteButton }) => {
             <i className="fa-solid fa-trash"></i>
           </button>
         )}
+        <button onClick={handleDetails}>Details</button>
       </div>
     </div>
   );
