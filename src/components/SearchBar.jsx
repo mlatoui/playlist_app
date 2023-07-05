@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import SongCard from "./SongCard";
+import React, { useState, createContext } from 'react';
+import SongCard from './SongCard';
+import DetailedSongCard from './detailedSongCard';
+
+export const ResultContext = createContext(null);
 
 const SearchBar = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [resultsVisible, setResultsVisible] = useState(false);
   const [results, setResults] = useState([]);
+  const [selectedResult, setSelectedResult] = useState(null);
 
   const handleSearch = async () => {
     if (!search) return;
@@ -17,12 +21,16 @@ const SearchBar = () => {
       setResultsVisible(true);
       console.log(data.data);
     } catch (error) {
-      console.error("Error fetching data from Deezer:", error);
+      console.error('Error fetching data from Deezer:', error);
     }
   };
 
+  const handleDetails = (result) => {
+    setSelectedResult(result);
+  };
+
   return (
-    <>
+    <ResultContext.Provider value={selectedResult}>
       <div className="music-logo">
         <i className="fa-solid fa-music"></i>
       </div>
@@ -42,17 +50,19 @@ const SearchBar = () => {
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
-      <ul id="results-container" className={resultsVisible ? "visible" : ""}>
+      <ul id="results-container" className={resultsVisible ? 'visible' : ''}>
         {results.map((result) => (
           <SongCard
             key={result.id}
             result={result}
             id={result.id}
             showDeleteButton={false}
+            onDetails={handleDetails}
           />
         ))}
       </ul>
-    </>
+      {selectedResult && <DetailedSongCard />}
+    </ResultContext.Provider>
   );
 };
 
