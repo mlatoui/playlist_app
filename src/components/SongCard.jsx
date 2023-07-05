@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { SelectedContext } from '../App';
+import React, { useContext } from "react";
+import { SelectedContext } from "../App";
 
 const SongCard = ({ result, id, showDeleteButton, onDetails }) => {
   const { title, artist, album } = result;
@@ -38,7 +38,9 @@ const SongCard = ({ result, id, showDeleteButton, onDetails }) => {
             <i className="fa-solid fa-trash"></i>
           </button>
         )}
-        <button onClick={handleDetails}>Details</button>
+        <button onClick={handleDetails} className="info-button">
+          <i className="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
   );
