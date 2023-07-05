@@ -61,7 +61,7 @@ const SearchBar = () => {
           />
         ))}
       </ul>
-      <DetailedSongCard />
+      {selectedResult && <DetailedSongCard />}
     </ResultContext.Provider>
   );
 };
