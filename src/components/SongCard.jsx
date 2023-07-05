@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { SelectedContext } from "./Main";
+import React, { useContext } from 'react';
+import { SelectedContext } from '../App';
 
 const SongCard = ({ result, id, showDeleteButton }) => {
   const { title, artist, album } = result;
