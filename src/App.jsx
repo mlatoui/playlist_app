@@ -7,11 +7,23 @@ import { About } from './pages/about';
 import { Home } from './pages/home';
 import { Playlists } from './pages/playlists';
 import PlayList from './components/PlayList';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const SelectedContext = createContext();
 function App() {
   const [selectedSongs, setSelectedSongs] = useState([]);
+
+  useEffect(() => {
+    const storedSongs = localStorage.getItem('selectedSongs');
+    if (storedSongs) {
+      setSelectedSongs(JSON.parse(storedSongs));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('selectedSongs', JSON.stringify(selectedSongs));
+  }, [selectedSongs]);
+
   return (
     <SelectedContext.Provider value={{ selectedSongs, setSelectedSongs }}>
       <Router>
