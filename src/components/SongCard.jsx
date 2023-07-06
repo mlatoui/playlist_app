@@ -1,7 +1,13 @@
-import React, { useContext } from 'react';
-import { SelectedContext } from '../App';
+import React, { useContext } from "react";
+import { SelectedContext } from "../App";
 
-const SongCard = ({ result, id, showDeleteButton, onDetails }) => {
+const SongCard = ({
+  result,
+  id,
+  showDeleteButton,
+  onDetails,
+  showAllButtons,
+}) => {
   const { title, artist, album } = result;
   const { selectedSongs, setSelectedSongs } = useContext(SelectedContext);
 
@@ -29,16 +35,20 @@ const SongCard = ({ result, id, showDeleteButton, onDetails }) => {
       <div className="info-container">
         <h3 className="artist-name">{artist.name}</h3>
         <h2 className="song-title">{title}</h2>
+        {showAllButtons && (
+          <button onClick={handleSelect} className="add-button">
+            <i className="fa-solid fa-plus"></i>
+          </button>
+        )}
 
-        <button onClick={handleSelect} className="add-button">
-          <i className="fa-solid fa-plus"></i>
-        </button>
         {showDeleteButton && (
           <button onClick={handleDelete} className="add-button">
             <i className="fa-solid fa-trash"></i>
           </button>
         )}
-        <button onClick={handleDetails}>Details</button>
+        {showAllButtons && !showDeleteButton && (
+          <button onClick={handleDetails}>Details</button>
+        )}
       </div>
     </div>
   );
