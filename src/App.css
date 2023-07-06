@@ -152,7 +152,20 @@ body {
   color: rgb(98, 97, 97);
 }
 
+.info-button {
+  width: 40px;
+  border-radius: 100px;
+  height: 40px;
+  font-size: 22px;
+  border: none;
+  color: rgb(98, 97, 97);
+}
+
 .add-button:hover {
+  background-color: #7f9fc2af;
+}
+
+.info-button:hover {
   background-color: #7f9fc2af;
 }
 
@@ -224,11 +237,9 @@ body {
   gap: 10px;
   justify-content: flex-start;
   background: rgb(42, 62, 85);
-  background: linear-gradient(
-    180deg,
-    rgba(42, 62, 85, 0.4) 0%,
-    rgba(217, 227, 240, 0.5) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(42, 62, 85, 0.4) 0%,
+      rgba(217, 227, 240, 0.5) 100%);
   background-size: 400% 400%;
   padding: 0 10px;
   border-radius: 10px;
@@ -271,6 +282,7 @@ body {
 
 .info-container button {
   margin-top: 10px;
+  margin-right: 10px;
 }
 
 .toggle-button {
@@ -304,7 +316,10 @@ body {
   position: fixed;
   display: grid;
   bottom: 0;
-  background-color: rgb(204, 228, 241);
+  background: rgb(42, 62, 85);
+  background: linear-gradient(180deg,
+      rgb(189, 204, 224) 0%,
+      rgb(169, 182, 201) 100%);
   height: auto;
   max-height: 800px;
   z-index: 9999;
@@ -318,17 +333,62 @@ body {
   column-gap: 10px;
   padding: 20px;
   overflow-y: auto;
-  border: solid;
+  /* border: solid; */
   border-width: 5px;
-  border-color: rgb(204, 228, 241);
+  /* border-color: rgb(204, 228, 241); */
   opacity: 0;
   transform: translateY(100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.more-info-container {
+  position: fixed;
+  display: grid;
+  margin: auto;
+  width: 500px;
+  height: 300px;
+  bottom: 0;
+  left: -350px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgb(204, 228, 241);
+  border: 5px solid rgb(204, 228, 241);
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+.cover-and-player {
+  display: grid;
+  grid-template-columns: .5fr 1fr;
+  align-items: end;
+}
+
+.title-and-close {
+  display: grid;
+  grid-template-columns: 4fr .5fr;
+}
+
+.close-more-info-button {
+  width: 40px;
+  border-radius: 100px;
+  height: 40px;
+  font-size: 22px;
+  border: none;
+  color: rgb(98, 97, 97);
+}
+
 .playlist-container.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.more-info-container.visible {
+  opacity: 1;
+  transform: translateX(370px);
+
 }
 
 .playlist-title {
@@ -342,9 +402,7 @@ body {
 }
 
 .playlist-buttons {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  column-gap: 10px;
+  text-align: end;
 }
 
 .playlist-button {

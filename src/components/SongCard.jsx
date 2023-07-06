@@ -46,6 +46,7 @@ const SongCard = ({
             <i className="fa-solid fa-trash"></i>
           </button>
         )}
+
         {showAllButtons && !showDeleteButton && (
           <button onClick={handleDetails} className="info-button">
             <i className="fa-solid fa-bars"></i>
