@@ -1,11 +1,11 @@
-import React, { useState, createContext } from 'react';
-import SongCard from './SongCard';
-import DetailedSongCard from './detailedSongCard';
+import React, { useState, createContext } from "react";
+import SongCard from "./SongCard";
+import DetailedSongCard from "./detailedSongCard";
 
 export const ResultContext = createContext(null);
 
 const SearchBar = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [resultsVisible, setResultsVisible] = useState(false);
   const [results, setResults] = useState([]);
   const [selectedResult, setSelectedResult] = useState(null);
@@ -21,7 +21,7 @@ const SearchBar = () => {
       setResultsVisible(true);
       console.log(data.data);
     } catch (error) {
-      console.error('Error fetching data from Deezer:', error);
+      console.error("Error fetching data from Deezer:", error);
     }
   };
 
@@ -50,7 +50,7 @@ const SearchBar = () => {
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
-      <ul id="results-container" className={resultsVisible ? 'visible' : ''}>
+      <ul id="results-container" className={resultsVisible ? "visible" : ""}>
         {results.map((result) => (
           <SongCard
             key={result.id}
@@ -58,6 +58,7 @@ const SearchBar = () => {
             id={result.id}
             showDeleteButton={false}
             onDetails={handleDetails}
+            showAllButtons={true}
           />
         ))}
       </ul>
