@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SongCard from "./SongCard";
 import { SelectedContext } from "../App";
+
 const PlayList = () => {
   const { selectedSongs } = useContext(SelectedContext);
   const [boxVisible, setBoxVisible] = useState(false);
+  const [showSaveMessage, setShowSaveMessage] = useState(false);
 
   const toggleBoxVisibility = () => {
     setBoxVisible(!boxVisible);
@@ -13,8 +15,19 @@ const PlayList = () => {
   const navigate = useNavigate();
   const handleSave = () => {
     navigate("/playlist");
-    alert("Your playlist is saved.");
+    setShowSaveMessage(true);
   };
+
+  // Hide the save message after 3 seconds
+  useEffect(() => {
+    let timeout;
+    if (showSaveMessage) {
+      timeout = setTimeout(() => {
+        setShowSaveMessage(false);
+      }, 3000);
+    }
+    return () => clearTimeout(timeout);
+  }, [showSaveMessage]);
 
   return (
     <div>
@@ -41,6 +54,11 @@ const PlayList = () => {
           </button>
         </div>
       </div>
+      {showSaveMessage && (
+        <div className="save-message">
+          <span>Playlist saved</span>
+        </div>
+      )}
     </div>
   );
 };
