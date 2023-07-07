@@ -4,7 +4,7 @@ import SongCard from './SongCard';
 import { SavedContext, SelectedContext } from '../App';
 
 const PlayList = () => {
-  const { selectedSongs } = useContext(SelectedContext);
+  const { selectedSongs, setSelectedSongs } = useContext(SelectedContext);
   const { setSavedPlaylists } = useContext(SavedContext);
 
   const [boxVisible, setBoxVisible] = useState(false);
@@ -14,6 +14,7 @@ const PlayList = () => {
   };
 
   const navigate = useNavigate();
+
   const handleSave = () => {
     navigate('/playlist');
     const playlist = [...selectedSongs];
@@ -22,6 +23,7 @@ const PlayList = () => {
       playlist,
     ]);
     alert('Your playlist is saved.');
+    setSelectedSongs([]);
   };
 
   return (
@@ -46,6 +48,14 @@ const PlayList = () => {
           <div></div>
           <button className="playlist-button" onClick={handleSave}>
             Save
+          </button>
+          <button
+            className="playlist-button"
+            onClick={() => {
+              setSelectedSongs([]);
+            }}
+          >
+            Clear
           </button>
         </div>
       </div>
