@@ -1,9 +1,12 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import SongCard from "./SongCard";
-import { SelectedContext } from "../App";
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SongCard from './SongCard';
+import { SavedContext, SelectedContext } from '../App';
+
 const PlayList = () => {
-  const { selectedSongs } = useContext(SelectedContext);
+  const { selectedSongs, setSelectedSongs } = useContext(SelectedContext);
+  const { setSavedPlaylists } = useContext(SavedContext);
+
   const [boxVisible, setBoxVisible] = useState(false);
 
   const toggleBoxVisibility = () => {
@@ -11,9 +14,16 @@ const PlayList = () => {
   };
 
   const navigate = useNavigate();
+
   const handleSave = () => {
-    navigate("/playlist");
-    alert("Your playlist is saved.");
+    navigate('/playlist');
+    const playlist = [...selectedSongs];
+    setSavedPlaylists((prevSavedPlaylists) => [
+      ...prevSavedPlaylists,
+      playlist,
+    ]);
+    alert('Your playlist is saved.');
+    setSelectedSongs([]);
   };
 
   return (
@@ -21,7 +31,7 @@ const PlayList = () => {
       <button className="toggle-button" onClick={toggleBoxVisibility}>
         <i className="fa-solid fa-cart-shopping"></i>
       </button>
-      <div className={`playlist-container ${boxVisible ? "visible" : ""}`}>
+      <div className={`playlist-container ${boxVisible ? 'visible' : ''}`}>
         <h2 className="playlist-title">
           Playlist &nbsp;<i className="fa-solid fa-sliders"></i>
         </h2>
@@ -38,6 +48,14 @@ const PlayList = () => {
           <div></div>
           <button className="playlist-button" onClick={handleSave}>
             Save
+          </button>
+          <button
+            className="playlist-button"
+            onClick={() => {
+              setSelectedSongs([]);
+            }}
+          >
+            Clear
           </button>
         </div>
       </div>

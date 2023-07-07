@@ -1,13 +1,10 @@
-import React from "react";
-import SongCard from "../components/SongCard";
+import React, { useContext } from 'react';
+import { SavedContext } from '../App';
 
-export const Playlists = ({ songs }) => {
-  return (
-    <div>
-      <h2>Playlist</h2>
-      {songs.map((song) => (
-        <SongCard key={song.id} result={song} showAllButtons={false} />
-      ))}
-    </div>
-  );
+export const Playlists = () => {
+  const { savedPlaylists } = useContext(SavedContext);
+
+  console.log(savedPlaylists);
+
+  return <h1>list of playlists data in array "SavedContext" to be styled</h1>;
 };
