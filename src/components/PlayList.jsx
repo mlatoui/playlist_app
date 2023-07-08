@@ -6,6 +6,7 @@ import { SavedContext, SelectedContext } from "../App";
 const PlayList = () => {
   const { selectedSongs, setSelectedSongs } = useContext(SelectedContext);
   const { setSavedPlaylists } = useContext(SavedContext);
+  const navigate = useNavigate(); // Initialize the navigate function
 
   const [boxVisible, setBoxVisible] = useState(false);
   const [showSaveMessage, setShowSaveMessage] = useState(false);
@@ -22,6 +23,7 @@ const PlayList = () => {
       playlist,
     ]);
     setSelectedSongs([]);
+    navigate("/playlist"); // Navigate to the playlist page after saving
   };
 
   // Hide the save message after 3 seconds

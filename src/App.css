@@ -487,3 +487,34 @@ body {
     opacity: 0;
   }
 }
+
+.saved-playlist-container {
+  background: rgb(42, 62, 85);
+  background: linear-gradient(180deg,
+      rgb(189, 204, 224) 0%,
+      rgb(169, 182, 201) 100%);
+  height: auto;
+  max-height: 800px;
+  z-index: 9999;
+  width: 450px;
+  align-items: center;
+  justify-content: center;
+  right: 100px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  grid-template-columns: 1fr;
+  column-gap: 10px;
+  padding: 20px;
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+.playlist-name {
+  margin-bottom: 20px;
+  color: whitesmoke;
+  background-color: #2a57819b;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 600;
+}
