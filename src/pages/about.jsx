@@ -25,28 +25,31 @@ export const About = () => {
         <div className="about-links">
           <div className="link">
             Jingwen Bai
-            <a href="">
+            <a href="" target="_blank">
               <i className="fa-brands fa-linkedin"></i>
             </a>
-            <a href="">
+            <a href="" target="_blank">
               <i className="fa-brands fa-github"></i>
             </a>
           </div>
           <div className="link">
             Mourad Latoui
-            <a href="">
+            <a
+              href="https://www.linkedin.com/in/mourad-latoui-63386854/"
+              target="_blank"
+            >
               <i className="fa-brands fa-linkedin"></i>
             </a>
-            <a href="">
+            <a href="https://github.com/mlatoui" target="_blank">
               <i className="fa-brands fa-github"></i>
             </a>
           </div>
           <div className="link">
             Junior Vigneault
-            <a href="">
+            <a href="" target="_blank">
               <i className="fa-brands fa-linkedin"></i>
             </a>
-            <a href="">
+            <a href="" target="_blank">
               <i className="fa-brands fa-github"></i>
             </a>
           </div>
