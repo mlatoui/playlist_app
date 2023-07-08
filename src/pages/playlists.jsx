@@ -8,7 +8,7 @@ export const Playlists = () => {
     console.log('Song details:', song);
   };
   return (
-    <div>
+    <div className="saved-playlists-container">
       {savedPlaylists.map((playlist, index) => (
         <div key={index}>
           <div className="saved-playlist-container">
