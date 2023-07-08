@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
-import { ResultContext } from "./SearchBar";
+import React, { useContext, useEffect, useState, useRef } from 'react';
+import { ResultContext } from './SearchBar';
 
 const DetailedSongCard = () => {
   const [boxVisible, setBoxVisible] = useState(false);
@@ -13,13 +13,13 @@ const DetailedSongCard = () => {
 
   const toggleBoxVisibility = () => {
     setBoxVisible(!boxVisible);
-    audioRef.current.pause(); // Pause the audio when closing the box
+    audioRef.current.pause();
   };
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    const formattedSeconds = String(remainingSeconds).padStart(2, "0");
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
 
     return `${minutes}:${formattedSeconds}`;
   };
@@ -30,7 +30,7 @@ const DetailedSongCard = () => {
 
   return (
     <div>
-      <div className={`more-info-container ${boxVisible ? "visible" : ""}`}>
+      <div className={`more-info-container ${boxVisible ? 'visible' : ''}`}>
         <div className="title-and-close">
           <div>
             <h2 className="more-info-song-title">{selectedResult?.title}</h2>

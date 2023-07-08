@@ -1,12 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import SongCard from "./SongCard";
-import { SavedContext, SelectedContext } from "../App";
+import React, { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SongCard from './SongCard';
+import { SavedContext, SelectedContext } from '../App';
 
 const PlayList = () => {
   const { selectedSongs, setSelectedSongs } = useContext(SelectedContext);
   const { setSavedPlaylists } = useContext(SavedContext);
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
   const [boxVisible, setBoxVisible] = useState(false);
   const [showSaveMessage, setShowSaveMessage] = useState(false);
@@ -23,10 +23,9 @@ const PlayList = () => {
       playlist,
     ]);
     setSelectedSongs([]);
-    navigate("/playlist"); // Navigate to the playlist page after saving
+    navigate('/playlist');
   };
 
-  // Hide the save message after 3 seconds
   useEffect(() => {
     let timeout;
     if (showSaveMessage) {
@@ -42,7 +41,7 @@ const PlayList = () => {
       <button className="toggle-button" onClick={toggleBoxVisibility}>
         <i className="fa-solid fa-cart-shopping"></i>
       </button>
-      <div className={`playlist-container ${boxVisible ? "visible" : ""}`}>
+      <div className={`playlist-container ${boxVisible ? 'visible' : ''}`}>
         <h2 className="playlist-title">
           Playlist &nbsp;<i className="fa-solid fa-sliders"></i>
         </h2>
