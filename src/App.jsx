@@ -11,6 +11,7 @@ import { createContext, useEffect, useState } from 'react';
 
 export const SelectedContext = createContext();
 export const SavedContext = createContext();
+
 function App() {
   const [selectedSongs, setSelectedSongs] = useState([]);
   const [savedPlaylists, setSavedPlaylists] = useState([]);
@@ -25,6 +26,17 @@ function App() {
   useEffect(() => {
     localStorage.setItem('selectedSongs', JSON.stringify(selectedSongs));
   }, [selectedSongs]);
+
+  useEffect(() => {
+    const storedPlaylists = localStorage.getItem('savedPlaylists');
+    if (storedPlaylists) {
+      setSavedPlaylists(JSON.parse(storedPlaylists));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('savedPlaylists', JSON.stringify(savedPlaylists));
+  }, [savedPlaylists]);
 
   return (
     <SelectedContext.Provider value={{ selectedSongs, setSelectedSongs }}>
