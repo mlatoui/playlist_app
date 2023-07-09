@@ -28,7 +28,7 @@ export const About = () => {
             <a href="" target="_blank">
               <i className="fa-brands fa-linkedin"></i>
             </a>
-            <a href="" target="_blank">
+            <a href="https://github.com/baibai27" target="">
               <i className="fa-brands fa-github"></i>
             </a>
           </div>
@@ -46,10 +46,13 @@ export const About = () => {
           </div>
           <div className="link">
             Junior Vigneault
-            <a href="" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/junior-vigneault-a81073139/"
+              target="_blank"
+            >
               <i className="fa-brands fa-linkedin"></i>
             </a>
-            <a href="" target="_blank">
+            <a href="https://github.com/juniorvigneault/" target="_blank">
               <i className="fa-brands fa-github"></i>
             </a>
           </div>
