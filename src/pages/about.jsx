@@ -25,7 +25,10 @@ export const About = () => {
         <div className="about-links">
           <div className="link">
             Jingwen Bai
-            <a href="" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/nicole-bai-480618118"
+              target="_blank"
+            >
               <i className="fa-brands fa-linkedin"></i>
             </a>
             <a href="https://github.com/baibai27" target="">
